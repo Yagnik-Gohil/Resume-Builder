@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
   }
-  to {
-    transform: rotate(360deg);
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
   }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .top-image{
+    min-height: 250px;
+    background-image:url("../public/images/background-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .profile-image {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    top: -75px;
+    border: 5px solid white;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+.edit{
+  margin: 10px;
+  padding: 5px;
+  color: #555;
+  transition: 0.4s;
+}
+.edit:hover{
+  color: #17a2b8;
+  background-color: rgb(221, 221, 221);
 }
