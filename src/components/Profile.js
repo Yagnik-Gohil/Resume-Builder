@@ -55,6 +55,10 @@ function Profile() {
                     <Form.Group className="mb-3">
                         <Form.Control type="text" size="sm" placeholder="Describe yourself in one line" />
                     </Form.Group>
+                    <Form.Group controlId="formFileSm" className="mb-3">
+                        <Form.Label>Profile Picture</Form.Label>
+                        <Form.Control type="file" size="sm" />
+                    </Form.Group>
                 </Form>
             </Modal.Body>
 
