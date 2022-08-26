@@ -68,9 +68,8 @@ function Experience() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const x = event.currentTarget;
-    console.log(x.checkValidity())
-    if(!x.checkValidity()){
+    const valid = event.currentTarget;
+    if(!valid.checkValidity()){
       setValidated(true);
     }
     else{
