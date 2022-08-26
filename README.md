@@ -2,7 +2,8 @@
 
 ### About
 
-Resume-Builder is single oage web application created in React Library.
+Resume-Builder is single page web application created in React Library.
 
+Developement is under process
 
 
