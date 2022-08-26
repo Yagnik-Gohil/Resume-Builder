@@ -79,3 +79,7 @@ body {
   align-items: center;
   background-color: #f8f9fa;
 }
+.dropdown-list{
+  min-height: 200px;
+  overflow-y: scroll;
+}
