@@ -238,9 +238,6 @@ function Experience() {
           </Form>
         </Modal.Body>
 
-        <Modal.Footer>
-          
-        </Modal.Footer>
       </Modal>
       <Modal show={Alert} onHide={handleAlertClose} className="text-center" size="sm" centered>
         <Modal.Body>

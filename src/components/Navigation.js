@@ -7,10 +7,10 @@ function Navigation() {
   return (
     <Navbar bg="light" variant="light" className="border-bottom" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">Resume Builder</Navbar.Brand>
+        <Navbar.Brand href="#">Resume Builder</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">About</Nav.Link>
+          <Nav.Link href="#">Home</Nav.Link>
+          <Nav.Link href="#">About</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

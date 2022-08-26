@@ -83,3 +83,11 @@ body {
   min-height: 200px;
   overflow-y: scroll;
 }
+.delete{
+  transition: 0.4s;
+}
+.delete:hover {
+  color: #DC3545;
+  background-color: #ffffff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1) !important;
+}

@@ -64,7 +64,7 @@ function Profile() {
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3">
-                        <Form.Control type="email" name="name" size="sm" placeholder="Your Name" value={profile.name} onChange={handleProfile}/>
+                        <Form.Control type="text" name="name" size="sm" placeholder="Your Name" value={profile.name} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Control type="text" name="location" size="sm" placeholder="City, Country" value={profile.location} onChange={handleProfile}/>
