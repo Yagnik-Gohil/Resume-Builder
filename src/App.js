@@ -8,7 +8,7 @@ import Resume from './components/Resume';
 function App() {
   return (
     <Container fluid className="bg-white p-0">
-      
+
       <Navigation></Navigation>
       <Resume></Resume>
       <Footer></Footer>

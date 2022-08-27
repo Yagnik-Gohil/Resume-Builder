@@ -8,8 +8,8 @@ import { ImCheckmark, ImCross } from 'react-icons/im'
 
 function Skills() {
 
-  const [ skills, setSkills] = useState([]);
-  const [ show, setShow] = useState(false);
+  const [skills, setSkills] = useState([]);
+  const [show, setShow] = useState(false);
   const [Alert, setAlert] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
 
@@ -21,7 +21,7 @@ function Skills() {
   const [isEdit, setIsEdit] = useState(false);
   const [validated, setValidated] = useState(false);
 
-  const [ input, setInput] = useState("")
+  const [input, setInput] = useState("")
   const handleInput = (e) => {
     setInput(e.target.value)
   }
@@ -29,51 +29,50 @@ function Skills() {
   const handleSkills = (e) => {
     e.preventDefault();
     const valid = e.currentTarget;
-    if(!valid.checkValidity()){
+    if (!valid.checkValidity()) {
       setValidated(true);
     }
-    else{
+    else {
       setIsEdit(true);
-      setSkills([...skills,input]);
+      setSkills([...skills, input]);
       setInput("");
     }
-}
+  }
 
   const handleAlertClose = () => setAlert(false);
   const handleAlert = (id) => {
     setDeleteId(id)
     setAlert(true);
   }
-const handleDelete = (id) => {
-  skills.splice(id, 1);
-  setSkills(skills);
-  setAlert(false);
-  if(skills.length == 0){
-    setIsEdit(false);
+  const handleDelete = (id) => {
+    skills.splice(id, 1);
+    setSkills(skills);
+    setAlert(false);
+    if (skills.length == 0) {
+      setIsEdit(false);
+    }
   }
-}
 
   return (
     <Row className="justify-content-center mt-2">
       <Col md={8} sm={12} className="d-flex justify-content-between align-items-center bg-light rounded">
         <h5 className="m-0">Skills</h5>
-                {!isEdit && <MdAddCircleOutline size={30} className="rounded edit" onClick={handleShow} />}
-                {isEdit && <MdEdit size={30} className="rounded edit" onClick={handleShow} />}
+        {!isEdit && <MdAddCircleOutline size={30} className="rounded edit" onClick={handleShow} />}
+        {isEdit && <MdEdit size={30} className="rounded edit" onClick={handleShow} />}
       </Col>
       <Col md={8} sm={12}>
-        <Row className="pt-3">
-        <Col md={12} className="d-flex flex-wrap">
-          {
-            skills.map((items,id) => {
-                return(
+        <Row className="border-bottom pt-3">
+          <Col md={12} className="d-flex flex-wrap">
+            {
+              skills.map((items, id) => {
+                return (
                   <p className="technology rounded" key={id}>{items}</p>
                 )
-            })
-          }
-          
-            
-          </Col>
+              })
+            }
 
+
+          </Col>
         </Row>
 
       </Col>
@@ -84,20 +83,21 @@ const handleDelete = (id) => {
         </Modal.Header>
 
         <Modal.Body>
-          <Form  noValidate validated={validated} className="d-flex align-item-start mb-2" onSubmit={handleSkills}>
+          <Form noValidate validated={validated} className="d-flex align-item-start mb-2" onSubmit={handleSkills}>
             <Form.Group className="">
-              <Form.Control required type="text" size="sm" placeholder="Enter Skill" value={input} onChange={handleInput}/>
+              <Form.Control required type="text" size="sm" placeholder="Enter Skill" value={input} onChange={handleInput} />
             </Form.Group>
             <button type="submit" className="rounded edit m-0 mx-2">
               Add Skill
             </button>
           </Form>
+          <hr></hr>
           <div className="d-flex flex-wrap">
             {
-              skills.map((items,id) => {
-                  return(
-                    <p key={id} className="technology rounded ">{items} &nbsp; <MdOutlineCancel className="delete rounded" onClick={() => {handleAlert(id)}}/></p>
-                  )
+              skills.map((items, id) => {
+                return (
+                  <p key={id} className="technology rounded ">{items} &nbsp; <MdOutlineCancel className="delete rounded" onClick={() => { handleAlert(id) }} /></p>
+                )
               })
             }
           </div>
@@ -107,7 +107,7 @@ const handleDelete = (id) => {
       <Modal show={Alert} onHide={handleAlertClose} className="text-center" size="sm" centered>
         <Modal.Body>
           <h4>Are you sure ?</h4>
-          <ImCheckmark size={30} className="rounded edit" onClick={() => {handleDelete(deleteId)}}/>
+          <ImCheckmark size={30} className="rounded edit" onClick={() => { handleDelete(deleteId) }} />
           <ImCross size={25} className="rounded edit" onClick={handleAlertClose} />
         </Modal.Body>
       </Modal>

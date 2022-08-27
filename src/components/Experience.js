@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { MdAddCircleOutline, MdEdit, MdClose, MdDelete } from 'react-icons/md';
 import { HiOfficeBuilding } from 'react-icons/hi';
-import { FaReact } from 'react-icons/fa';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { ImCheckmark, ImCross } from 'react-icons/im'
@@ -124,7 +123,7 @@ function Experience() {
           list.map((item,id) => {
               return (
                 <Row className="border-bottom pt-3" key={id}>
-                  <Col md={6} className="d-flex justify-content-start">
+                  <Col md={10} className="d-flex justify-content-start">
                     <HiOfficeBuilding size={50} className="rounded color-blue bg-grey shadow-sm p-1" />
                     <div className="px-3">
                       <h5 className="m-0">{item.title}</h5>
@@ -134,16 +133,8 @@ function Experience() {
                     </div>
 
                   </Col>
-                  <Col md={4}>
-                    <h5>Skills</h5>
-                    <div className="d-flex flex-wrap">
-                      <p className="tag rounded "><FaReact /> React</p>
-                      <p className="tag rounded "><FaReact /> React</p>
-
-                    </div>
-                  </Col>
                   <Col md={2}>
-                    <div className="d-flex flex-wrap">
+                    <div className="d-flex flex-wrap justify-content-end">
                       <MdEdit size={30} className="rounded edit" onClick={() => {handleEdit(id)}}/>
                       <MdDelete size={30} className="rounded edit" onClick={() => {handleAlert(id)}}/>
                     </div>

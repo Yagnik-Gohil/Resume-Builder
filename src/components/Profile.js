@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {MdEdit, MdClose} from 'react-icons/md';
 import {HiLocationMarker,HiOfficeBuilding} from 'react-icons/hi';
+import { BsGithub, BsLinkedin, BsGlobe} from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
@@ -15,6 +16,9 @@ function Profile() {
     const [profile,setProfile] = useState({
         name: "Your Name",
         location: "City, Name",
+        github: "",
+        linkedin: "",
+        website: "",
         position: "Your Position",
         tagline: "Describe yourself in one line"
     })
@@ -44,16 +48,24 @@ function Profile() {
             </Col>
         </Row>
         <Row className="justify-content-center mt-2">
-            <Col md={8} sm={12}>
-                <h4>{profile.name}</h4>
+            <Col md={4} sm={6}>
+                <Col>
+                    <h4>{profile.name}</h4>
+                </Col>
+                <Col className="d-flex justify-content-start">
+                    <HiLocationMarker size={30} className="p-1"/><p className="p-1 m-0">{profile.location}</p>
+                    <HiOfficeBuilding size={30} className="p-1"/><p className="p-1 m-0">{profile.position}</p>
+                </Col>
+                <Col>
+                    <p className="px-2">{profile.tagline}</p>
+                </Col>
             </Col>
-            <Col md={8} sm={12} className="d-flex justify-content-start">
-                <HiLocationMarker size={30} className="p-1"/><p className="p-1 m-0">{profile.location}</p>
-                <HiOfficeBuilding size={30} className="p-1"/><p className="p-1 m-0">{profile.position}</p>
+            <Col md={4} sm={6} className="d-flex justify-content-start">
+                    <BsGithub size={30} className="p-1"/><p className="p-1 m-0"><a className="text-decoration-none text-black" href={profile.github} rel="noreferrer" target="_blank">GitHub</a></p>
+                    <BsLinkedin size={30} className="p-1"/><p className="p-1 m-0"><a className="text-decoration-none text-black" href={profile.linkedin} rel="noreferrer" target="_blank">LinkedIn</a></p>
+                    <BsGlobe size={30} className="p-1"/><p className="p-1 m-0"><a className="text-decoration-none text-black" href={profile.website} rel="noreferrer" target="_blank">Portfolio</a></p>
             </Col>
-            <Col md={8} sm={12}>
-                <p className="px-2">{profile.tagline}</p>
-            </Col>
+            
         </Row>
         <Modal show={show} onHide={handleClose} centered>
             <Modal.Header>
@@ -74,6 +86,15 @@ function Profile() {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Control type="text" name="tagline" size="sm" placeholder="Describe yourself in one line" value={profile.tagline} onChange={handleProfile}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Control type="text" name="github" size="sm" placeholder="GitHub Profile" value={profile.github} onChange={handleProfile}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Control type="text" name="linkedin" size="sm" placeholder="LinkedIn Profile" value={profile.linkedin} onChange={handleProfile}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Control type="text" name="website" size="sm" placeholder="Your Portfolio Website" value={profile.website} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group controlId="formFileSm" className="mb-3">
                         <Form.Label>Profile Picture</Form.Label>

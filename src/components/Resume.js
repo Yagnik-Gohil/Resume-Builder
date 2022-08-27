@@ -10,20 +10,26 @@ function Resume() {
   return (
     <Fragment>
 
-        <Container fluid className="p-0 top-image"></Container>
-        <Container className="min-vh-100">
+      <Container fluid className="p-0 top-image"></Container>
+      <Container className="min-vh-100">
 
-            <Profile></Profile>
+        <Profile></Profile>
 
-            <About></About>
+        <About></About>
 
-            <Experience></Experience>
+        <Experience></Experience>
 
-            <Education></Education>
+        <Education></Education>
 
-            <Skills></Skills>
-            
-        </Container>
+        <Skills></Skills>
+
+
+
+        <div className="d-grid col-6 mx-auto my-4">
+          <button className="btn btn-secondary" type="button">Download</button>
+        </div>
+
+      </Container>
     </Fragment>
   )
 }

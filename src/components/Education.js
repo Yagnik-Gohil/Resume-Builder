@@ -20,6 +20,7 @@ function Education() {
       id: "",
       institute: "",
       degree: "",
+      grade: "",
       fieldOfStudy: "",
       startYear: "",
       endYear: "",
@@ -39,6 +40,7 @@ function Education() {
     id: "",
     institute: "",
     degree: "",
+    grade: "",
     fieldOfStudy: "",
     startYear: "",
     endYear: "",
@@ -76,6 +78,7 @@ function Education() {
         id: "",
         institute: "",
         degree: "",
+        grade: "",
         fieldOfStudy: "",
         startYear: "",
         endYear: "",
@@ -116,12 +119,12 @@ function Education() {
                   <div className="px-3">
                     <h5 className="m-0">{item.institute}</h5>
                     <p className="text-muted m-0">{item.degree} • {item.fieldOfStudy}</p>
-                    <p className="text-muted">{item.startYear} - {item.endYear}</p>
+                    <p className="text-muted">{item.startYear} - {item.endYear} • Grade: {item.grade}</p>
                   </div>
 
                 </Col>
                 <Col md={2}>
-                  <div className="d-flex flex-wrap">
+                  <div className="d-flex flex-wrap justify-content-end">
                       <MdEdit size={30} className="rounded edit" onClick={() => {handleEdit(id)}}/>
                       <MdDelete size={30} className="rounded edit" onClick={() => {handleAlert(id)}}/>
 
@@ -193,6 +196,10 @@ function Education() {
                 </Col>
               </Row>
 
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Grade</Form.Label>
+              <Form.Control required type="text" name="grade" size="sm" placeholder="Ex: 8.5/10 CGPA" value={form.grade} onChange={handleForm} />
             </Form.Group>
             <button type="submit" className="rounded edit px-2">
               Save Changes
