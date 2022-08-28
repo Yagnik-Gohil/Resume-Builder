@@ -6,36 +6,63 @@ import {HiLocationMarker,HiOfficeBuilding} from 'react-icons/hi';
 import { BsGithub, BsLinkedin, BsGlobe} from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../state/index';
 
 function Profile() {
 
-    const [file, setFile] = useState("./images/profile.jpg");
+    const profile = useSelector(state => state.profile)
+    const file = useSelector(state => state.file)
+    const dispatch = useDispatch();
+    const {manageProfile, manageFile} = bindActionCreators(actionCreators, dispatch);
+
+    // const [file, setFile] = useState("./images/profile.jpg");
     function handleFile(e) {
-        setFile(URL.createObjectURL(e.target.files[0]));
+        manageFile(URL.createObjectURL(e.target.files[0]));
+        // setFile(URL.createObjectURL(e.target.files[0]));
     }
-    const [profile,setProfile] = useState({
-        name: "Your Name",
-        location: "City, Name",
-        github: "",
-        linkedin: "",
-        website: "",
-        position: "Your Position",
-        tagline: "Describe yourself in one line"
-    })
+    // const [profile,setProfile] = useState({
+    //     name: "Your Name",
+    //     location: "City, Name",
+    //     github: "",
+    //     linkedin: "",
+    //     website: "",
+    //     position: "Your Position",
+    //     tagline: "Describe yourself in one line"
+    // })
 
     const handleProfile = (e) => {
-        setProfile((old)=>{
-            return {
-                ...old,
-                [e.target.name]:e.target.value
-            }
-        })
+        manageProfile({
+                    ...profile,
+                    [e.target.name]:e.target.value
+                })
+        // setProfile((old)=>{
+        //     return {
+        //         ...old,
+        //         [e.target.name]:e.target.value
+        //     }
+        // })
     }
 
   const [show, setShow] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [profileName, setProfileName] = useState("");
+  const [profileURL, setProfileURL] = useState("");
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const handleAlertHide = () => {
+        setProfileName("");
+        setProfileURL("");
+        setAlert(false)
+    };
+    const handleAlertShow = (Profile,Link) => {
+        setProfileName(Profile);
+        setProfileURL(Link);
+        setAlert(true)
+    };
+  
 
   return (
     
@@ -61,9 +88,9 @@ function Profile() {
                 </Col>
             </Col>
             <Col md={4} sm={6} className="d-flex justify-content-start">
-                    <BsGithub size={30} className="p-1"/><p className="p-1 m-0"><a className="text-decoration-none text-black" href={profile.github} rel="noreferrer" target="_blank">GitHub</a></p>
-                    <BsLinkedin size={30} className="p-1"/><p className="p-1 m-0"><a className="text-decoration-none text-black" href={profile.linkedin} rel="noreferrer" target="_blank">LinkedIn</a></p>
-                    <BsGlobe size={30} className="p-1"/><p className="p-1 m-0"><a className="text-decoration-none text-black" href={profile.website} rel="noreferrer" target="_blank">Portfolio</a></p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("LinkedIn",profile.linkedin)}><BsLinkedin size={30} className="p-1"/>LinkedIn</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("GitHub",profile.github)}><BsGithub size={30} className="p-1"/>GitHub</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("Portfolio",profile.website)}><BsGlobe size={30} className="p-1"/>Portfolio</p>
             </Col>
             
         </Row>
@@ -108,6 +135,12 @@ function Profile() {
                     Save Changes
                 </button>
             </Modal.Footer>
+        </Modal>
+        <Modal show={alert} onHide={handleAlertHide}>
+            <Modal.Header>
+                <Modal.Title>{profileName} URL</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{profileURL}</Modal.Body>
         </Modal>
     </Fragment>
     

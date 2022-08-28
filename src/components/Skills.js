@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { MdAddCircleOutline, MdEdit, MdClose, MdOutlineCancel } from 'react-icons/md';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { ImCheckmark, ImCross } from 'react-icons/im'
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../state/index';
 
 function Skills() {
 
-  const [skills, setSkills] = useState([]);
+  const skills = useSelector(state => state.skills)
+  const dispatch = useDispatch();
+  const {addSkill, removeSkill} = bindActionCreators(actionCreators, dispatch);
+
+  // const [skills, setSkills] = useState([]);
   const [show, setShow] = useState(false);
   const [Alert, setAlert] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
@@ -34,7 +41,8 @@ function Skills() {
     }
     else {
       setIsEdit(true);
-      setSkills([...skills, input]);
+      addSkill(input)
+      // setSkills([...skills, input]);
       setInput("");
     }
   }
@@ -45,13 +53,19 @@ function Skills() {
     setAlert(true);
   }
   const handleDelete = (id) => {
-    skills.splice(id, 1);
-    setSkills(skills);
+    removeSkill(id)
+    // skills.splice(id, 1);
+    // setSkills(skills);
     setAlert(false);
-    if (skills.length == 0) {
+    // if (skills.length === 0) {
+    //   setIsEdit(false);
+    // }
+  }
+  useEffect(()=>{
+    if (skills.length === 0) {
       setIsEdit(false);
     }
-  }
+  },[skills])
 
   return (
     <Row className="justify-content-center mt-2">

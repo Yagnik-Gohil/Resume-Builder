@@ -7,8 +7,16 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { ImCheckmark, ImCross } from 'react-icons/im'
 import Years from '../smallComponents/Years';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../state/index';
 
 function Education() {
+
+  const educationList = useSelector(state => state.educationList)
+  const dispatch = useDispatch();
+  const {addEducation, editEducation, removeEducation} = bindActionCreators(actionCreators, dispatch);
+
   const [show, setShow] = useState(false);
   const [Alert, setAlert] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
@@ -35,7 +43,7 @@ function Education() {
   }
 
 
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
   const [form, setForm] = useState({
     id: "",
     institute: "",
@@ -66,12 +74,14 @@ function Education() {
     }
     else {
       if (form.isEdit) {
-        list[form.id] = form;
-        setList(list);
+        editEducation(form)
+        // list[form.id] = form;
+        // setList(list);
       }
       else {
-        const newList = list.concat({ ...form });
-        setList(newList);
+        addEducation(form);
+        // const newList = list.concat({ ...form });
+        // setList(newList);
       }
       setShow(false);
       setForm({
@@ -89,7 +99,7 @@ function Education() {
   }
 
   const handleEdit = (id) => {
-    const form = list[id];
+    const form = educationList[id];
     form.isEdit = true;
     form.id = id
     setForm(form)
@@ -97,8 +107,9 @@ function Education() {
   }
 
   const handleDelete = (id) => {
-    list.splice(id, 1);
-    setList(list);
+    removeEducation(id);
+    // list.splice(id, 1);
+    // setList(list);
     setAlert(false);
   }
 
@@ -110,7 +121,7 @@ function Education() {
       </Col>
       <Col md={8} sm={12}>
         {
-          list.map((item, id) => {
+          educationList.map((item, id) => {
             return (
               <Row className="border-bottom pt-3" key={id}>
 

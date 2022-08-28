@@ -4,10 +4,17 @@ import Col from 'react-bootstrap/Col';
 import { MdAddCircleOutline, MdEdit, MdClose } from 'react-icons/md';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../state/index';
 
 function About() {
 
-    const [about, setAbout] = useState();
+    const about = useSelector(state => state.about)
+    const dispatch = useDispatch();
+    const {manageAbout} = bindActionCreators(actionCreators, dispatch);
+
+    // const [about, setAbout] = useState();
     const [isEdit, setIsEdit] = useState(false);
     const [validated, setValidated] = useState(false);
 
@@ -20,7 +27,8 @@ function About() {
         else {
             setIsEdit(true)
         }
-        setAbout(e.target.value)
+        manageAbout(e.target.value)
+        // setAbout(e.target.value)
 
     }
     const [show, setShow] = useState(false);

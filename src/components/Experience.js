@@ -8,8 +8,16 @@ import Form from 'react-bootstrap/Form';
 import { ImCheckmark, ImCross } from 'react-icons/im'
 import Months from '../smallComponents/Months';
 import Years from '../smallComponents/Years';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../state/index';
 
 function Experience() {
+
+  const experienceList = useSelector(state => state.experienceList)
+  const dispatch = useDispatch();
+  const {addExperience, editExperience, removeExperience} = bindActionCreators(actionCreators, dispatch);
+
   const [show, setShow] = useState(false);
   const [Alert, setAlert] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
@@ -39,7 +47,7 @@ function Experience() {
   }
 
 
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
   const [form, setForm] = useState({
     id:"",
     title: "",
@@ -73,12 +81,14 @@ function Experience() {
     }
     else{
       if(form.isEdit){
-        list[form.id] = form;
-        setList(list);
+        editExperience(form);
+        // list[form.id] = form;
+        // setList(list);
       }
       else{
-        const newList = list.concat({ ...form });
-        setList(newList);
+        addExperience(form)
+        // const newList = list.concat({ ...form });
+        // setList(newList);
       }
       setShow(false);
       setForm({
@@ -99,7 +109,7 @@ function Experience() {
   }
 
   const handleEdit = (id) => {
-    const form = list[id];
+    const form = experienceList[id];
     form.isEdit = true;
     form.id = id
     setForm(form)
@@ -107,8 +117,9 @@ function Experience() {
   }
 
   const handleDelete = (id) => {
-    list.splice(id, 1);
-    setList(list);
+    removeExperience(id);
+    // list.splice(id, 1);
+    // setList(list);
     setAlert(false);
   }
 
@@ -120,7 +131,7 @@ function Experience() {
       </Col>
       <Col md={8} sm={12}>
         { 
-          list.map((item,id) => {
+          experienceList.map((item,id) => {
               return (
                 <Row className="border-bottom pt-3" key={id}>
                   <Col md={10} className="d-flex justify-content-start">

@@ -25,7 +25,7 @@ function Resume() {
 
 
 
-        <div className="d-grid col-6 mx-auto my-4">
+        <div className="d-grid col-4 mx-auto my-4">
           <button className="btn btn-secondary" type="button">Download</button>
         </div>
 
