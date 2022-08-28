@@ -11,7 +11,7 @@ function Resume() {
     <Fragment>
 
       <Container fluid className="p-0 top-image"></Container>
-      <Container className="min-vh-100">
+      <Container>
 
         <Profile></Profile>
 
@@ -25,7 +25,7 @@ function Resume() {
 
 
 
-        <div className="d-grid col-4 mx-auto my-4">
+        <div className="d-grid col-2 mx-auto my-4">
           <button className="btn btn-secondary" type="button">Download</button>
         </div>
 

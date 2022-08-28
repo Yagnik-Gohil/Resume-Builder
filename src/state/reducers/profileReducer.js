@@ -4,6 +4,8 @@ const profileReducer = (profile={
     github: "",
     linkedin: "",
     website: "",
+    email: "",
+    contact: "",
     position: "Your Position",
     tagline: "Describe yourself in one line"
 }, action) => {

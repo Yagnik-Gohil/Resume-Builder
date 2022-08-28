@@ -2,7 +2,7 @@ import React, { Fragment, useState  } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {MdEdit, MdClose} from 'react-icons/md';
-import {HiLocationMarker,HiOfficeBuilding} from 'react-icons/hi';
+import {HiLocationMarker,HiOfficeBuilding,HiOutlineMail,HiPhone} from 'react-icons/hi';
 import { BsGithub, BsLinkedin, BsGlobe} from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -87,10 +87,12 @@ function Profile() {
                     <p className="px-2">{profile.tagline}</p>
                 </Col>
             </Col>
-            <Col md={4} sm={6} className="d-flex justify-content-start">
-                <p className="p-1 m-0" onClick={()=>handleAlertShow("LinkedIn",profile.linkedin)}><BsLinkedin size={30} className="p-1"/>LinkedIn</p>
-                <p className="p-1 m-0" onClick={()=>handleAlertShow("GitHub",profile.github)}><BsGithub size={30} className="p-1"/>GitHub</p>
+            <Col md={4} sm={6} className="d-flex flex-wrap">
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("LinkedIn Profile",profile.linkedin)}><BsLinkedin size={30} className="p-1"/>LinkedIn</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("GitHub Profile",profile.github)}><BsGithub size={30} className="p-1"/>GitHub</p>
                 <p className="p-1 m-0" onClick={()=>handleAlertShow("Portfolio",profile.website)}><BsGlobe size={30} className="p-1"/>Portfolio</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("Email Address",profile.email)}><HiOutlineMail size={30} className="p-1"/>Email</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("Contact Number",profile.contact)}><HiPhone size={30} className="p-1"/>Contact Number</p>
             </Col>
             
         </Row>
@@ -113,6 +115,12 @@ function Profile() {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Control type="text" name="tagline" size="sm" placeholder="Describe yourself in one line" value={profile.tagline} onChange={handleProfile}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Control type="email" name="email" size="sm" placeholder="Email Address" value={profile.email} onChange={handleProfile}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Control type="number" name="contact" size="sm" placeholder="Contact Number" value={profile.contact} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Control type="text" name="github" size="sm" placeholder="GitHub Profile" value={profile.github} onChange={handleProfile}/>
@@ -138,7 +146,7 @@ function Profile() {
         </Modal>
         <Modal show={alert} onHide={handleAlertHide}>
             <Modal.Header>
-                <Modal.Title>{profileName} URL</Modal.Title>
+                <Modal.Title>{profileName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>{profileURL}</Modal.Body>
         </Modal>
