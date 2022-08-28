@@ -67,7 +67,7 @@ function Profile() {
             </Col>
             
         </Row>
-        <Modal show={show} onHide={handleClose} centered>
+        <Modal show={show} onHide={handleClose} centered backdrop="static">
             <Modal.Header>
                 <Modal.Title>Profile Details</Modal.Title>
                 <MdClose size={30} className="rounded edit" onClick={handleClose}/>

@@ -41,7 +41,7 @@ function About() {
             <Col md={8} sm={12}>
                 {
                     about &&
-                    <p className="py-2">
+                    <p className="py-2 text-break">
                         {about}
                     </p>
                 }
