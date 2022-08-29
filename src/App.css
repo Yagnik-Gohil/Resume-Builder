@@ -91,3 +91,45 @@ body {
   background-color: #ffffff;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1) !important;
 }
+
+
+
+/* ========== PDF ========== */
+
+.font-bold{
+  font-size: 40px;
+  font-weight: 900;
+}
+.font-thin {
+  font-size: 40px;
+  font-weight: 100;
+}
+.firstname{
+  position: relative;
+  top: 20px;
+}
+.title{
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.bg-1 {
+  background-color: antiquewhite;
+}
+.bg-2 {
+  background-color: rgb(49, 49, 49);
+}
+.bg-3 {
+  background-color: rgb(77, 77, 77);
+}
+.pdf{
+  width: 210mm;
+  height: 297mm;
+}
+.pdf-profile-image {
+  height: 150px;
+  width: 150px;
+  border: 4px solid white;
+  object-fit: cover;
+  border-radius: 50%;
+}
+

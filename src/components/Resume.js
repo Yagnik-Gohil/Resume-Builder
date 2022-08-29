@@ -5,6 +5,7 @@ import About from './About';
 import Experience from './Experience';
 import Education from './Education';
 import Skills from './Skills';
+import { NavLink } from 'react-router-dom';
 
 function Resume() {
   return (
@@ -23,10 +24,8 @@ function Resume() {
 
         <Skills></Skills>
 
-
-
-        <div className="d-grid col-2 mx-auto my-4">
-          <button className="btn btn-secondary" type="button">Download</button>
+        <div className="d-grid col-2 mx-auto my-4 text-center">
+          <NavLink className="nav-link align-middle bg-dark text-white p-2 rounded" to="/preview">Preview</NavLink>
         </div>
 
       </Container>
