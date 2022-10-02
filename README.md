@@ -14,6 +14,6 @@ Resume-Builder is single page web application created in React Library.
 - [React-Icons](https://react-icons.github.io/react-icons)
 
 Feel free to use the source to create your resume.<br/>
-Basic knowledge of HTML5, CSS and React is sufficient if you to customize the resume for your requirements.
+Basic knowledge of HTML5, CSS and React is sufficient if you want to customize the resume for your requirements.
 
 ![](https://visitor-badge.glitch.me/badge?page_id=Yagnik-Gohil.Resume-Builder)
