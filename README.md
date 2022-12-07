@@ -6,11 +6,11 @@ Resume-Builder is single page web application created in React Library.
 
 ### Resume 1.0 (using jspdf)
 
-<img src="https://github.com/Yagnik-Gohil/Resume-Builder/blob/master/public/images/1.0.JPG?raw=true" width="128"/>
+<img src="https://github.com/Yagnik-Gohil/Resume-Builder/blob/master/public/images/1.0.JPG?raw=true" width="500"/>
 
 ### Resume 2.0 (using html-pdf)
 
-<img src="https://github.com/Yagnik-Gohil/Resume-Builder/blob/master/public/images/2.0.JPG?raw=true" width="128"/>
+<img src="https://github.com/Yagnik-Gohil/Resume-Builder/blob/master/public/images/2.0.JPG?raw=true" width="500"/>
 
 ### Technologies
 
